@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <openerp>
+    <data>
+        <record id="customer_invoice_tax_view" model="ir.ui.view">
+            <field name="name">name</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='invoice_line_tax_ids']" position="replace">
+
+                </xpath>
+                <xpath expr="//page[1]/field[@name='comment']" position="replace">
+                    <label for="tax_id" string="Invoice Tax"/>
+                    <field name="tax_id" class="oe_inline" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+        </openerp>
