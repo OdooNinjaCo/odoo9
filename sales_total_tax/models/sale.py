@@ -36,7 +36,7 @@ class sale_order(models.Model):
         else:
             return super(sale_order,self)._prepare_invoice()
 
-    @api.depends('order_line.price_total')
+    @api.depends('order_line.price_total','tax_id')
     def _amount_all(self):
         """
         Compute the total amounts of the SO.
